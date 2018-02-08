@@ -1,0 +1,126 @@
+* {
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+}
+
+#cabecalho{
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 0 15px -5px rgba(0,0,0,.7);
+}
+
+#form_cad{
+
+    margin-top: 7%;
+    margin-bottom: 1%;
+    background-color: whitesmoke;
+    border-color: black;
+    border: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px -2px rgba(0,0,0,.7);
+}
+
+
+#sair{
+    margin-right: 5px;
+}
+
+body{
+    background-color: #010049;
+}
+
+.my_form{
+    margin-top: 10rem;
+    background-color: white;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 0 15px -2px rgba(0,0,0,.7);
+}
+
+#typeuser{
+    margin-bottom: 5%;
+    border-radius: 5px;
+    height: 38px;
+}
+
+#selectCad{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#imput_email{
+    height: 38px;
+}
+#imput_senha{
+    margin-top: 5%;
+    height: 38px;
+}
+
+
+.btn-login{
+    background-color: #02a85b;
+}
+
+#fundo{
+    background: whitesmoke;
+    margin-top: 1%;
+    margin-left: 19%;
+    border-radius: 5px;
+}
+
+#lista{
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 7%;
+    margin-bottom: 2%;
+    box-shadow: 0 0 15px -2px rgba(0,0,0,.7);
+}
+
+#tableLista{
+    border-radius: 5px;
+}
+
+#alertGeral{
+    width: 50%;
+    margin-left: 25%;
+}
+
+a[href="#top"]{
+    padding:10px;
+    position:fixed;
+    top: 90%;
+    right:40px;
+    display:none;
+    font-size: 30px;
+    background-color: whitesmoke;
+    border-radius: 25px;
+}
+a[href="#top"]:hover{
+    text-decoration:none;
+}
+
+#notasAlunos{
+    border-radius: 5px;
+}
+
+#id_geral{
+    margin-right: 1%;
+}
+
+#label_info{
+    font-weight: bolder;
+}
+
+#hr1 {
+    background-color: #2980b9;
+    height: 2px;
+}
+#hr2 {
+    background-color: #00b300;
+    height: 2px;
+}
