@@ -12,6 +12,9 @@
     </head>
 
     <body>
+        <?php
+        $con = mysqli_connect('localhost','root','', 'chat');
+        ?>
         <div class="container">
             <form class="col-lg-4 col-lg-offset-4 my_form" action="checkLogin.jsp" method="post">
                 <img src="img/tom.jpg" class="center-block" alt="" style="width: 150px; height: 150px;" />
@@ -41,7 +44,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Name: </label>
                                 <div class="form-group col-sm-8">
-                                    <input class="form-control" required autofocus placeholder="Type here your name" type="text" name="name"/>
+                                    <input class="form-control" required="required" placeholder="Type here your name" type="text" name="name"/>
                                 </div>
                             </div>
 
