@@ -18,7 +18,7 @@
         <div class="container">
             <form class="col-lg-4 col-lg-offset-4 my_form" action="checkLogin.php" method="post">
                 <img src="img/tom.jpg" class="center-block" alt="" style="width: 150px; height: 150px;" />
-                <h2 class="text-center">Welcome!</h2>
+                <h2 class="text-center">Welcome! <?php echo $_SESSION['user']?></h2>
 
                 <!--<label for="imput_email" class="sr_only"></label>-->
                 <input type="text"  name="user" id="imput_email" class="form-control"  placeholder="Type here your name" required autofocus>
