@@ -29,17 +29,17 @@
                 <!-- <a href="#" data-toggle="modal" data-target="#modalCad" id="cad" class="btn btn-lg btn-sucess btn-block btn-login" type="button">Cadastrar</a>-->
                     <li><a href="#" data-toggle="modal" data-target="#modalCad" id="cad">
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                    Criar sala</a></li>
+                    Create room</a></li>
                 </ul>
                 <ul class="nav navbar-nav">
                     <li><a href="logout.php" id="sair">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    Sair</a></li>
+                    Logout</a></li>
                 </ul>
             </nav>
         </div>
 
-        <!-- modal criar sala -->
+        <!-- modal create room -->
         <div class="modal fade" id="modalCad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -52,16 +52,23 @@
                     <div class="modal-body">
                         <form class="form-horizontal" name="form_cad" method="post" action="save_room.php">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Nome: </label>
+                                <label class="col-sm-4 control-label">Room's name: </label>
                                 <div class="form-group col-sm-8">
-                                    <input class="form-control" required="required" placeholder="Digite o nome da sala" type="text" name="name"/>
+                                    <input class="form-control" required="required" placeholder="Type here a name of the room" type="text" name="name_room"/>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Descrição: </label>
+                                <label class="col-sm-4 control-label">Description: </label>
                                 <div class="form-group col-sm-8">
-                                    <input class="form-control" placeholder="Digite uma descrição para a sala" type="password" name="qtd_disc"/>
+                                    <input class="form-control" required="required" placeholder="Type here a description of the room (optional)" type="text" name="description"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Minimum age: </label>
+                                <div class="form-group col-sm-8">
+                                    <input class="form-control" placeholder="Type here a minimum age to entery in the room" type="text" name="minium_age"/>
                                 </div>
                             </div>
 
@@ -70,7 +77,7 @@
                                     <input class="btn btn-success" type="button" value="Save" onclick="form_cad.submit();
                                             form_cad.reset();"/>
                                     <input class="btn btn-info" type="reset" value="Clear" />     
-                                    <a href="index.php"class="btn btn-primary" type="submit" >Cancel</a>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button> <!--Close modal -->
                                 </div>
                             </div>    
                         </form>
@@ -78,6 +85,6 @@
                 </div>
             </div>
         </div>
-        <!-- fim modal criar sala -->
+        <!-- end modal create room -->
     </body>
 </html>
