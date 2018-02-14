@@ -18,7 +18,7 @@
         <div class="container">
             <form class="col-lg-4 col-lg-offset-4 my_form" action="checkLogin.php" method="post">
                 <img src="img/tom.jpg" class="center-block" alt="" style="width: 150px; height: 150px;" />
-                <h2 class="text-center">Welcome!</h2>
+                <h2 class="text-center">Welcome to D-Chat!</h2>
 
                 <!--<label for="imput_email" class="sr_only"></label>-->
                 <input type="text"  name="user" id="imput_email" class="form-control"  placeholder="Type here your name" required autofocus>
@@ -30,7 +30,7 @@
             </form>
         </div>
         
-        <div class="modal fade" id="modalCad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <!-- <div class="modal fade" id="modalCad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -67,7 +67,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </body>
 </html>
 
