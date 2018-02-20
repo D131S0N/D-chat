@@ -1,26 +1,11 @@
 <?php
+include 'conecta.php';
+
 session_start();
-$user = $_POST["user"];
+$user_name = $_POST["user_name"];
 
-$con = mysqli_connect('localhost','root','', 'chat') or die ("Sem conexão com o servidor");
-
-//$result = mysql_query("SELECT * FROM 'users' WHERE 'name' = '$user'");
-$select = "SELECT * FROM users WHERE name = '$user'";
-$result = $con->query($select);
-//var_dump($result);die; usa para veririfcar o código
-// documentação  https://secure.php.net/manual/pt_BR/book.mysqli.php
-/*coisa do gustavo 	"Print to console": {
-		"prefix": "deb",
-		"body": [
-			"",
-			"echo '<pre>';",
-			"print_r($1);",
-			"echo '</pre>';",
-			"die(\"$1\");",
-			""
-		],
-		"description": "Log output to console"
-	}*/
+$select = mysqli_query("SELECT * FROM users WHERE name = '$user_name'");
+$result = mysqli_num_rows($select);
 
 if($result > 0)
     {
@@ -28,8 +13,14 @@ if($result > 0)
         echo "<script>location.href='home.php'</script>";
     }
     else{
-        $query = "INSERT INTO 'users' ('name') VALUES ('$user')";
-        ($query);
+		$insere = "INSERT INTO users (name) VALUES ('$user_name')";
+        //$insere .="('$user_name')";
+        
         header("Location: home.php");
     }
-    
+
+/* verificar 
+para uso de banco de dados no PHP, pesquisa por metodos PDO php... ele já tem uns tratativas para SQL Injection
+e para debugar pesquisar habiltar xdebug xamp */
+
+?>

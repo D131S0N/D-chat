@@ -21,7 +21,7 @@
                 <h2 class="text-center">Welcome to D-Chat!</h2>
 
                 <!--<label for="imput_email" class="sr_only"></label>-->
-                <input type="text"  name="user" id="imput_email" class="form-control"  placeholder="Type here your name" required autofocus>
+                <input type="text"  name="user_name" id="imput_email" class="form-control"  placeholder="Type here your name" required autofocus>
                 <!--<label for="imput_senha" class="sr_only"></label>
                 <input type="password" name="senha" id="imput_senha" class="form-control"  placeholder="Type here you password" required autofocus>-->
                 <br>
