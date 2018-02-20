@@ -36,6 +36,13 @@
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     Logout</a></li>
                 </ul>
+                    <ul class="nav navbar-nav">
+                    <li><a href="logout.php" id="sair">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    Welcome <?php
+                    session_start();
+                    echo $_SESSION['user_name']; ?></a></li>
+                </ul>
             </nav>
         </div>
 
