@@ -15,36 +15,39 @@
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/select2.min.js" type="text/javascript"></script>
 
-        <title>Notas online</title>
+        <title>Welcome to D-chat</title>
     </head>
     <body>
-        <div class="container">
-            <nav class="navbar navbar-default" id="cabecalho">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="home.php">
-                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                        Home <span class="sr-only">(current)</span></a>
-                </div>
-                <ul class="nav navbar-nav">
-                <!-- <a href="#" data-toggle="modal" data-target="#modalCad" id="cad" class="btn btn-lg btn-sucess btn-block btn-login" type="button">Cadastrar</a>-->
-                    <li><a href="#" data-toggle="modal" data-target="#modalCad" id="cad">
-                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                    Create room</a></li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li><a href="logout.php" id="sair">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    Logout</a></li>
-                </ul>
-                    <ul class="nav navbar-nav">
-                    <li><a href="logout.php" id="sair">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    Welcome <?php
-                    session_start();
-                    echo $_SESSION['user_name']; ?></a></li>
-                </ul>
-            </nav>
-        </div>
+
+<!-- inicio listagem -->
+<?php
+include 'cabecalho.php';
+include 'conecta.php';
+// cria a instrução SQL que vai selecionar os dados
+$query = "SELECT * FROM rooms";
+// executa a query
+$dados = mysqli_query($conexao, $query) or die(mysqli_error());
+// transforma os dados em um array
+$linha = mysqli_fetch_assoc($dados);
+// calcula quantos dados retornaram
+$total = mysqli_num_rows($dados);
+?>
+
+<?php
+	// se o número de resultados for maior que zero, mostra os dados
+	if($total > 0) {
+		// inicia o loop que vai mostrar todos os dados
+		do {
+?>
+			<p><?=$linha['name']?> / <?=$linha['minimum_age']?></p>
+<?php
+		// finaliza o loop que vai mostrar os dados
+		}while($linha = mysqli_fetch_assoc($dados));
+	// fim do if 
+	}
+?>
+
+<!-- fimlistagem -->
 
         <!-- modal create room -->
         <div class="modal fade" id="modalCad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
