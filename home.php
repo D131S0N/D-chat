@@ -23,6 +23,7 @@
 <?php
 include 'cabecalho.php';
 include 'conecta.php';
+
 // cria a instrução SQL que vai selecionar os dados
 $query = "SELECT * FROM rooms";
 // executa a query
@@ -31,18 +32,31 @@ $dados = mysqli_query($conexao, $query) or die(mysqli_error());
 $linha = mysqli_fetch_assoc($dados);
 // calcula quantos dados retornaram
 $total = mysqli_num_rows($dados);
-?>
 
-<?php
 	// se o número de resultados for maior que zero, mostra os dados
 	if($total > 0) {
-		// inicia o loop que vai mostrar todos os dados
-		do {
+		foreach ($linha as $dados){
 ?>
-			<p><?=$linha['name']?> / <?=$linha['minimum_age']?></p>
+            <div class="container">
+                <div class="cool-md-8" id="list_rooms">
+                    <table class="table table-striped table-hover table-bordered" id="table_room">
+                        <tr>
+                            <td>Room's number</td>
+                            <td>Room's name</td>
+                            <td>Description</td>
+                            <td>Age</td>
+                        </tr>
+                        <tr>
+                            <th><?=$linha['id']?></th>
+                            <th><?=$linha['name']?></th>
+                            <th><?=$linha['description']?></th>
+                            <th><?=$linha['minimum_age']?></th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
 <?php
-		// finaliza o loop que vai mostrar os dados
-		}while($linha = mysqli_fetch_assoc($dados));
+		}
 	// fim do if 
 	}
 ?>
