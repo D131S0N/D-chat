@@ -34,10 +34,9 @@ body{
 }
 
 #list_rooms{
-    background-color: rgb(0, 7, 7);
+    margin-top: 8%;
+    background-color: white;
     border-radius: 5px;
+    
 }
 
-#table_room{
-    border-radius: 5px;
-}

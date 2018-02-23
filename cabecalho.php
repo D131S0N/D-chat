@@ -1,5 +1,5 @@
         <div class="container">
-            <nav class="navbar navbar-default" id="cabecalho">
+            <nav class="navbar navbar-default navbar responsive" id="cabecalho">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="home.php">
                         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>

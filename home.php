@@ -18,48 +18,50 @@
         <title>Welcome to D-chat</title>
     </head>
     <body>
-
-<!-- inicio listagem -->
-<?php
-include 'cabecalho.php';
-include 'conecta.php';
-
-// cria a instrução SQL que vai selecionar os dados
-$query = "SELECT * FROM rooms";
-// executa a query
-$dados = mysqli_query($conexao, $query) or die(mysqli_error());
-// transforma os dados em um array
-$linha = mysqli_fetch_assoc($dados);
-// calcula quantos dados retornaram
-$total = mysqli_num_rows($dados);
-
-	// se o número de resultados for maior que zero, mostra os dados
-	if($total > 0) {
-		foreach ($linha as $dados){
-?>
+    <?php 
+    include 'cabecalho.php';
+    ?>
             <div class="container">
                 <div class="cool-md-8" id="list_rooms">
-                    <table class="table table-striped table-hover table-bordered" id="table_room">
+                    <table class="table table-striped table-hover table-bordered cool-md-8" id="table_room">
                         <tr>
                             <td>Room's number</td>
                             <td>Room's name</td>
                             <td>Description</td>
                             <td>Age</td>
                         </tr>
+<!-- inicio listagem -->
+<?php
+
+include 'conecta.php';
+
+// cria a instrução SQL que vai selecionar os dados
+$query = "SELECT * FROM rooms";
+// executa a query
+$dados = mysqli_query($conexao, $query) or die(mysqli_error());
+
+// calcula quantos dados retornaram
+$total = mysqli_num_rows($dados);
+
+	// se o número de resultados for maior que zero, mostra os dados
+	if($total > 0) {
+        // transforma os dados em um array
+		while($linha = mysqli_fetch_assoc($dados)){
+?>
                         <tr>
                             <th><?=$linha['id']?></th>
                             <th><?=$linha['name']?></th>
                             <th><?=$linha['description']?></th>
                             <th><?=$linha['minimum_age']?></th>
                         </tr>
-                    </table>
-                </div>
-            </div>
 <?php
 		}
 	// fim do if 
 	}
 ?>
+                    </table>
+                </div>
+            </div>
 
 <!-- fimlistagem -->
 
