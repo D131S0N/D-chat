@@ -17,7 +17,7 @@
                     Logout</a></li>
                 </ul>
                     <ul class="nav navbar-nav">
-                    <li><a href="logout.php" id="sair">
+                    <li><a href="#" id="sair">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                     Welcome, <?php
                     session_start();

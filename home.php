@@ -27,8 +27,7 @@
                         <tr>
                             <td>Room's number</td>
                             <td>Room's name</td>
-                            <td>Description</td>
-                            <td>Age</td>
+                            <td>Login</td>
                         </tr>
 <!-- inicio listagem -->
 <?php
@@ -51,8 +50,7 @@ $total = mysqli_num_rows($dados);
                         <tr>
                             <th><?=$linha['id']?></th>
                             <th><?=$linha['name']?></th>
-                            <th><?=$linha['description']?></th>
-                            <th><?=$linha['minimum_age']?></th>
+                            <th><a = href="#" type="button" class="btn btn-sucees">login</a> </th>
                         </tr>
 <?php
 		}
