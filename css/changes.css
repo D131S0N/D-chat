@@ -40,3 +40,12 @@ body{
     
 }
 
+#major{
+    background-color: aqua;
+
+}
+
+#chatt{
+    background-color:blueviolet ;
+    border-radius: 5px;
+}
