@@ -40,12 +40,39 @@ body{
     
 }
 
-#major{
-    background-color: aqua;
-
+.major{
+    margin-top: 10rem;
+    background-color:black;
+    border-radius: 15px;
 }
 
-#chatt{
-    background-color:blueviolet ;
+.chatt{
+    margin-top: 2%;
+    background-color:whitesmoke;
+    margin-left: 8%;
+    height: 500px;
     border-radius: 5px;
+}
+
+.linha{
+    margin-left: 2%;
+}
+
+.msg{
+    margin-bottom: 2%;
+    background-color: whitesmoke;
+    margin-left: 8%;
+    height: 75px;
+    border-radius: 5px;
+}
+
+.messenger{
+    margin-top: 1%;
+    height: 57px;
+    border-radius: 5px;
+}
+
+.send_btn{
+    margin-top: 1%;
+    height: 57px;
 }
