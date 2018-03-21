@@ -36,7 +36,7 @@ $total = mysqli_num_rows($dados);
                         <tr>
                             <th><?=$linha['id']?></th>
                             <th><?=$linha['name']?></th>
-                            <th><a = href="sala.php?room_id<?=$linha['id']?>" type="button" class="btn btn-sucees">login</a> </th>
+                            <th><a href="sala.php?room_id=<?=$linha['id']?>" type="button" class="btn btn-sucees">login</a> </th>
                         </tr>
 <?php
 		}

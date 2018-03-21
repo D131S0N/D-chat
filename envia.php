@@ -4,7 +4,6 @@ include 'conecta.php';
 include 'links.php';
 // Recuperamos os valores dos campos através do método POST
 $nome = $_POST["nome"];
-$email = $_POST["email"];
 $mensagem = $_POST["mensagem"];
 // Verifica se o nome foi preenchido
 /*if (empty($nome)) {
