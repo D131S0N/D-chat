@@ -31,13 +31,16 @@ $(function($) {
 	// Quando o formulário for enviado, essa função é chamada
 	$("#formulario").submit(function() {
 		// Colocamos os valores de cada campo em uma váriavel para facilitar a manipulação
-		//var nome = $("#nome").val();
+		var nome = $("#nome").val();
 		var mensagem = $("#mensagem").val();
+		var sala = $("#sala").val();
+		var id_usu = $("#id_usu").val();
+
 		//console.log(nome);
 		// Exibe mensagem de carregamento
 		$("#status").html("<img src='loader.gif' alt='Enviando' />");
 		// Fazemos a requisão ajax com o arquivo envia.php e enviamos os valores de cada campo através do método POST
-		$.post('envia.php', {mensagem: mensagem }, function(resposta) {
+		$.post('envia.php', {nome: nome, mensagem: mensagem }, function(resposta) {
 				// Quando terminada a requisição
 				// Exibe a div status
 				$("#status").slideDown();
@@ -55,6 +58,8 @@ $(function($) {
 					// Limpando todos os campos
 					$("#nome").val("");
 					$("#mensagem").val("");
+					$("#sala").val("");
+					$("#id_usu").val("");
 				}
 		});
 	});
@@ -63,15 +68,23 @@ $(function($) {
 </head>
 <body>
     <div class="container major">
-        <div class="col-lg-10 chatt">
-            <?php echo $_GET['room_id'] ?>
+        <div class="col-lg-10 chatt" id="status">
+			<?php   echo "aaaaaaaaaaaaa";
+					echo $_SESSION['user_name'];
+					echo $_SESSION['room_id'];
+					echo $_SESSION['user_name'];
+					echo $_SESSION['user_id'];
+			?>
         </div>
             <br>
             <hr class="col-lg-11 linha">
             <br>
-        <div class="col-lg-10 msg">
+        <div class="col-lg-10 msg"id="escrever">
             <form id="formulario" action="javascript:func()" method="post">
                 <input class="col-lg-11 messenger" type="text" id="mensagem">
+				<input class="col-lg-11" type="hidden" id="nome" value="$_SESSION['user_name']">
+				<input class="col-lg-11" type="hidden" id="sala" value="$_SESSION['room_id']">
+				<input class="col-lg-11" type="hidden" id="id_usu" value="$_SESSION['user_id']">
                 <button class="btn btn-info col-lg-1 send_btn" type="submit">Send</button>
             </form>
             <?php

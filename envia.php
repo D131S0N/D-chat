@@ -2,9 +2,12 @@
 // Incluimos o arquivo de conexão
 include 'conecta.php';
 include 'links.php';
+session_start();
 // Recuperamos os valores dos campos através do método POST
 $nome = $_POST["nome"];
 $mensagem = $_POST["mensagem"];
+$sala = $_POST["sala"];
+$id_user = $_POST["id_usu"];
 // Verifica se o nome foi preenchido
 /*if (empty($nome)) {
 	echo "Escreva seu nome";
@@ -24,9 +27,11 @@ elseif (strlen($mensagem) > 500) {
 // Se não houver nenhum erro
 else {
 	// Inserimos no banco de dados
-	$query = mysqli_query("INSERT INTO messages VALUES ('', '".$nome."', '".$email."', '".$mensagem."')");
+	$query_insere_mensagem = "INSERT INTO messages VALUES ('', '".$id_user."', '".$sala."', '".$mensagem."')";
+	mysqli_query($conexao, $query_insere_mensagem);
+	
 	// Se inserido com sucesso
-	if ($query) {
+	if ($query_insere_mensagem) {
 		echo false;
 	} 
 	// Se houver algum erro ao inserir
