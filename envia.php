@@ -8,6 +8,7 @@ $nome = $_POST["nome"];
 $mensagem = $_POST["mensagem"];
 $sala = $_POST["sala"];
 $id_user = $_POST["id_usu"];
+	$query_insere_mensagem = "INSERT INTO messages VALUES ('', '$sala', '$id_user', '$mensagem')";
 // Verifica se o nome foi preenchido
 /*if (empty($nome)) {
 	echo "Escreva seu nome";
@@ -27,12 +28,11 @@ elseif (strlen($mensagem) > 500) {
 // Se não houver nenhum erro
 else {
 	// Inserimos no banco de dados
-	$query_insere_mensagem = "INSERT INTO messages VALUES ('', '".$id_user."', '".$sala."', '".$mensagem."')";
 	mysqli_query($conexao, $query_insere_mensagem);
 	
 	// Se inserido com sucesso
 	if ($query_insere_mensagem) {
-		echo false;
+		echo "$nome disse: $mensagem";
 	} 
 	// Se houver algum erro ao inserir
 	else {
