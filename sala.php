@@ -26,21 +26,19 @@ if($num_user_room > 0)
 <head>
     <title>Chat</title>
     
-<script type="text/javascript" language="javascript">
+	<script type="text/javascript" language="javascript">
 $(function($) {
 	// Quando o formulário for enviado, essa função é chamada
 	$("#formulario").submit(function() {
 		// Colocamos os valores de cada campo em uma váriavel para facilitar a manipulação
 		var nome = $("#nome").val();
-		var mensagem = $("#mensagem").val();
 		var sala = $("#sala").val();
 		var id_usu = $("#id_usu").val();
-
-		//console.log(nome);
+		var mensagem = $("#mensagem").val();
 		// Exibe mensagem de carregamento
 		$("#status").html("<img src='loader.gif' alt='Enviando' />");
 		// Fazemos a requisão ajax com o arquivo envia.php e enviamos os valores de cada campo através do método POST
-		$.post('envia.php', {nome: nome, mensagem: mensagem, sala: sala, id_usu: id_usu}, function(resposta) {
+		$.post('envia.php', {nome: nome, sala: sala, id_usu: id_usu, mensagem: mensagem }, function(resposta) {
 				// Quando terminada a requisição
 				// Exibe a div status
 				$("#status").slideDown();
@@ -57,9 +55,9 @@ $(function($) {
 					$("#mensagens").prepend("<strong>"+ nome +"</strong> disse: <em>" + mensagem + "</em><br />");
 					// Limpando todos os campos
 					$("#nome").val("");
-					$("#mensagem").val("");
 					$("#sala").val("");
 					$("#id_usu").val("");
+					$("#mensagem").val("");
 				}
 		});
 	});
@@ -67,30 +65,36 @@ $(function($) {
 </script>
 </head>
 <body>
-    <div class="container major">
-        <div class="col-lg-10 chatt" id="status">
+	<div class="container major">
+		<h1>Romm <?php echo $_SESSION['room_id']; ?></h1>
 
-        </div>
-            <br>
-            <hr class="col-lg-11 linha">
-            <br>
-        <div class="col-lg-10 msg"id="mensagens">
-            <form id="formulario" action="javascript:func()" method="post">
-                <input class="col-lg-11 messenger" type="text" id="mensagem">
-				<input class="col-lg-11" type="hidden" id="nome" value="<?php$_SESSION['user_name']?>">
-				<input class="col-lg-11" type="hidden" id="sala" value="<?php$_SESSION['room_id']?>">
-				<input class="col-lg-11" type="hidden" id="id_usu" value="<?php$_SESSION['user_id']?>">
-                <button class="btn btn-info col-lg-1 send_btn" type="submit">Send</button>
-            </form>
-            <?php
+		<div id="mensagens" class="col-lg-10 chatt">
+		<?php
                 // Buscamos e exibimos as mensagens já contidas no banco de dados
-				$query = "SELECT m.* FROM messages m JOIN users AS u ON u.id = m.user_id WHERE u.id = '".$_SESSION['user_id']."'";
+				$query = "SELECT * FROM messages ORDER BY id ASC";
 				$result_query = mysqli_query($conexao, $query);
                 while($mensagem = mysqli_fetch_object($result_query)) {
-                    echo "<strong>" . $nome . "</strong> disse: <em>" . $mensagem . "</em><br />";
+                    echo "<strong>" . $mensagem->user_name . "</strong> disse: <em>" . $mensagem->chat . "</em><br />";
                 }
             ?>
-        </div>
-    </div>
+		</div>
+		<div id="status" style="display: none;"></div>
+			<br>
+            <hr class="col-lg-11 linha">
+            <br>
+			<div id="escrever" class="col-lg-10 msg">
+				<form id="formulario" action="javascript:func()" method="post">
+					
+					<input name="nome" type="hidden" id="nome" value="<?=$_SESSION['user_name']?>"/>      
+					<input name="sala" type="hidden" id="sala" value="<?=$_SESSION['room_id']?>"/>
+					<input name="id_usu" type="hidden" id="id_usu" value="<?=$_SESSION['user_id']?>"/>
+					
+					<input class="col-lg-11 messenger" name="mensagem" type="text" id="mensagem" />
+					
+					<input type="submit" value="Enviar" class="btn btn-info col-lg-1 send_btn" />
+					
+				</form>
+			</div>
+	</div>
 </body>
 </html>

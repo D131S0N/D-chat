@@ -8,7 +8,7 @@ $nome = $_POST["nome"];
 $mensagem = $_POST["mensagem"];
 $sala = $_POST["sala"];
 $id_user = $_POST["id_usu"];
-	$query_insere_mensagem = "INSERT INTO messages VALUES ('', '$sala', '$id_user', '$mensagem')";
+	$query_insere_mensagem = "INSERT INTO messages VALUES ('', '$sala', '$id_user', '$mensagem', '$nome')";
 // Verifica se o nome foi preenchido
 /*if (empty($nome)) {
 	echo "Escreva seu nome";
@@ -32,7 +32,7 @@ else {
 	
 	// Se inserido com sucesso
 	if ($query_insere_mensagem) {
-		echo "$nome disse: $mensagem";
+		echo false;
 	} 
 	// Se houver algum erro ao inserir
 	else {
