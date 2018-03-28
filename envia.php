@@ -1,7 +1,7 @@
 <?php
 // Incluimos o arquivo de conexão
 include 'conecta.php';
-include 'links.php';
+
 session_start();
 // Recuperamos os valores dos campos através do método POST
 $nome = $_POST["nome"];
@@ -16,7 +16,7 @@ $id_user = $_POST["id_usu"];
 // Verifica se o email é válido
 elseif (!eregi("^[a-z0-9_\.\-]+@[a-z0-9_\.\-]*[a-z0-9_\-]+\.[a-z]{2,4}$", $email)) {
 	echo "Digite um email válido";
-} */
+} 
 // Verifica se a mensagem foi digitada
 if (empty($mensagem)) {
 	echo "Escreva uma mensagem";
@@ -26,11 +26,11 @@ elseif (strlen($mensagem) > 500) {
 	echo "A mensagem deve ter no máximo 500 caracteres";
 } 
 // Se não houver nenhum erro
-else {
+else {*/
 	// Inserimos no banco de dados
 	mysqli_query($conexao, $query_insere_mensagem);
 	
-	// Se inserido com sucesso
+	/* Se inserido com sucesso
 	if ($query_insere_mensagem) {
 		echo false;
 	} 
@@ -38,5 +38,5 @@ else {
 	else {
 		echo "Não foi possível inserir a mensagem no momento.";
 	}
-}
+}*/
 ?>

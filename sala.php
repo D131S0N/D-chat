@@ -7,7 +7,6 @@ $select_user_room = "SELECT * FROM users_rooms WHERE user_id = '".$_SESSION['use
 $result_user_room = mysqli_query($conexao, $select_user_room);
 $num_user_room = mysqli_num_rows($result_user_room);
 
-
 $inserir_user_room = "INSERT INTO users_rooms (user_id, room_id) VALUES ('".$_SESSION['user_id']."','". $_GET['room_id']."')";
 
 if($num_user_room > 0)
@@ -19,13 +18,13 @@ if($num_user_room > 0)
 		$room_id = $_GET["room_id"];
 		$_SESSION['room_id']=$room_id;
         mysqli_query($conexao, $inserir_user_room);
-    }
-
+	}
 ?>
 <html>
 <head>
     <title>Chat</title>
-    
+	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+	<script src="js/jquery.min.js" type="text/javascript"></script>
 	<script type="text/javascript" language="javascript">
 $(function($) {
 	// Quando o formulário for enviado, essa função é chamada
@@ -35,22 +34,22 @@ $(function($) {
 		var sala = $("#sala").val();
 		var id_usu = $("#id_usu").val();
 		var mensagem = $("#mensagem").val();
-		// Exibe mensagem de carregamento
-		$("#status").html("<img src='loader.gif' alt='Enviando' />");
+		/* Exibe mensagem de carregamento
+		$("#status").html("<img src='loader.gif' alt='Enviando' />");*/
 		// Fazemos a requisão ajax com o arquivo envia.php e enviamos os valores de cada campo através do método POST
 		$.post('envia.php', {nome: nome, sala: sala, id_usu: id_usu, mensagem: mensagem }, function(resposta) {
 				// Quando terminada a requisição
-				// Exibe a div status
-				$("#status").slideDown();
+				/* Exibe a div status
+				$("#status").slideDown();*/
 				// Se a resposta é um erro
-				if (resposta != false) {
+				/*if (resposta != false) {
 					// Exibe o erro na div
 					$("#status").html(resposta);
 				} 
 				// Se resposta for false, ou seja, não ocorreu nenhum erro
 				else {
 					// Exibe mensagem de sucesso
-					$("#status").html("Mensagem enviada com sucesso!");
+					$("#status").html("Mensagem enviada com sucesso!");*/
 					// Coloca a mensagem no div de mensagens
 					$("#mensagens").prepend("<strong>"+ nome +"</strong> disse: <em>" + mensagem + "</em><br />");
 					// Limpando todos os campos
@@ -58,7 +57,7 @@ $(function($) {
 					$("#sala").val("");
 					$("#id_usu").val("");
 					$("#mensagem").val("");
-				}
+				/*}*/
 		});
 	});
 });
@@ -78,21 +77,17 @@ $(function($) {
                 }
             ?>
 		</div>
-		<div id="status" style="display: none;"></div>
+		
 			<br>
             <hr class="col-lg-11 linha">
             <br>
 			<div id="escrever" class="col-lg-10 msg">
 				<form id="formulario" action="javascript:func()" method="post">
-					
 					<input name="nome" type="hidden" id="nome" value="<?=$_SESSION['user_name']?>"/>      
 					<input name="sala" type="hidden" id="sala" value="<?=$_SESSION['room_id']?>"/>
 					<input name="id_usu" type="hidden" id="id_usu" value="<?=$_SESSION['user_id']?>"/>
-					
 					<input class="col-lg-11 messenger" name="mensagem" type="text" id="mensagem" />
-					
-					<input type="submit" value="Enviar" class="btn btn-info col-lg-1 send_btn" />
-					
+					<input type="submit" value="Enviar" class="btn btn-info send_btn" />			
 				</form>
 			</div>
 	</div>

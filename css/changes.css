@@ -52,6 +52,7 @@ body{
     margin-left: 8%;
     height: 500px;
     border-radius: 5px;
+    overflow:auto; 
 }
 
 .linha{
