@@ -9,6 +9,9 @@ $num_user_room = mysqli_num_rows($result_user_room);
 
 $inserir_user_room = "INSERT INTO users_rooms (user_id, room_id) VALUES ('".$_SESSION['user_id']."','". $_GET['room_id']."')";
 
+$user_id = $_SESSION['user_id'];
+$user_name = $_SESSION['user_name'];
+
 if($num_user_room > 0)
     {
 		$room_id = $_GET["room_id"];
@@ -62,15 +65,25 @@ $(function($) {
 	});
 });
 </script>
+        <script type="text/javascript">
+			var el = document.querySelector('#mensagens');
+				setInterval(function() {
+				el.innerHTML;
+				var height = el.scrollHeight;
+				el.scrollTop = height;
+			});
+
+        </script>
 </head>
 <body>
 	<div class="container major">
-		<h1>Romm <?php echo $_SESSION['room_id']; ?></h1>
-
+		<h1>Romm <?php echo $room_id; ?></h1>
+		<a href="home.php" type="button">Voltar</a>
 		<div id="mensagens" class="col-lg-10 chatt">
+		
 		<?php
                 // Buscamos e exibimos as mensagens já contidas no banco de dados
-				$query = "SELECT * FROM messages ORDER BY id ASC";
+				$query = "SELECT * FROM messages WHERE room_id = '".$_GET['room_id']."' ORDER BY id ASC";
 				$result_query = mysqli_query($conexao, $query);
                 while($mensagem = mysqli_fetch_object($result_query)) {
                     echo "<strong>" . $mensagem->user_name . "</strong> disse: <em>" . $mensagem->chat . "</em><br />";
@@ -82,11 +95,11 @@ $(function($) {
             <hr class="col-lg-11 linha">
             <br>
 			<div id="escrever" class="col-lg-10 msg">
-				<form id="formulario" action="javascript:func()" method="post">
+				<form id="formulario" action="#" method="post">
 					<input name="nome" type="hidden" id="nome" value="<?=$_SESSION['user_name']?>"/>      
 					<input name="sala" type="hidden" id="sala" value="<?=$_SESSION['room_id']?>"/>
 					<input name="id_usu" type="hidden" id="id_usu" value="<?=$_SESSION['user_id']?>"/>
-					<input class="col-lg-11 messenger" name="mensagem" type="text" id="mensagem" />
+					<input class="col-lg-11 messenger" required autofocus name="mensagem" type="text" id="mensagem" />
 					<input type="submit" value="Enviar" class="btn btn-info send_btn" />			
 				</form>
 			</div>

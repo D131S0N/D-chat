@@ -7,6 +7,7 @@
     include 'links.php';
     include 'cabecalho.php';
     ?>
+    <!-- inicio listagem -->
             <div class="container">
                 <div class="cool-md-8" id="list_rooms">
                     <table class="table table-striped table-hover table-bordered cool-md-8" id="table_room">
@@ -15,7 +16,6 @@
                             <td>Room's name</td>
                             <td>Login</td>
                         </tr>
-<!-- inicio listagem -->
 <?php
 
 include 'conecta.php';
