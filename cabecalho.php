@@ -7,7 +7,7 @@
                 </div>
                 <ul class="nav navbar-nav">
                 <!-- <a href="#" data-toggle="modal" data-target="#modalCad" id="cad" class="btn btn-lg btn-sucess btn-block btn-login" type="button">Cadastrar</a>-->
-                    <li><a href="#" data-toggle="modal" data-target="#modalCad" id="cad">
+                    <li><a href="create_room.php">
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                     Create room</a></li>
                 </ul>

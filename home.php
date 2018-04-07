@@ -36,7 +36,7 @@ $total = mysqli_num_rows($dados);
                         <tr>
                             <th><?=$linha['id']?></th>
                             <th><?=$linha['name']?></th>
-                            <th><a href="sala.php?room_id=<?=$linha['id']?>" type="button" class="btn btn-sucees">login</a> </th>
+                            <th><a href="check_user.php?room_id=<?=$linha['id']?>" type="button" class="btn btn-sucees">login</a> </th>
                         </tr>
 <?php
 		}
@@ -49,7 +49,7 @@ $total = mysqli_num_rows($dados);
 
 <!-- fimlistagem -->
 
-        <!-- modal create room -->
+        <!-- modal create room 
         <div class="modal fade" id="modalCad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -87,7 +87,7 @@ $total = mysqli_num_rows($dados);
                                     <input class="btn btn-success" type="button" value="Save" onclick="form_cad.submit();
                                             form_cad.reset();"/>
                                     <input class="btn btn-info" type="reset" value="Clear" />     
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button> <!--Close modal -->
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button> Close modal 
                                 </div>
                             </div>    
                         </form>
@@ -95,6 +95,6 @@ $total = mysqli_num_rows($dados);
                 </div>
             </div>
         </div>
-        <!-- end modal create room -->
+        end modal create room -->
     </body>
 </html>

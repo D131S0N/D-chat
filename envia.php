@@ -8,7 +8,8 @@ $nome = $_POST["nome"];
 $mensagem = $_POST["mensagem"];
 $sala = $_POST["sala"];
 $id_user = $_POST["id_usu"];
-	$query_insere_mensagem = "INSERT INTO messages VALUES ('', '$sala', '$id_user', '$mensagem', '$nome')";
+$data = $_POST["data"];
+	$query_insere_mensagem = "INSERT INTO messages VALUES ('', '$sala', '$id_user', '$mensagem', '$nome', '$data')";
 // Verifica se o nome foi preenchido
 /*if (empty($nome)) {
 	echo "Escreva seu nome";
