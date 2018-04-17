@@ -69,7 +69,7 @@ $(function($) {
 		
 		<?php
 				// Buscamos e exibimos as mensagens já contidas no banco de dados				
-				$query = "SELECT m.*, u.* FROM messages m JOIN users_rooms u ON (m.date_msg > u.date_enter) WHERE m.room_id = '".$_GET['room_id']."' ORDER BY id ASC";
+				$query = "SELECT * FROM messages m JOIN users_rooms u ON (m.user_id = u.user_id) WHERE m.room_id = '".$_GET['room_id']."' AND m.date_msg > u.date_enter ORDER BY id ASC";
 				$result_query = mysqli_query($conexao, $query);
                 while($mensagem = mysqli_fetch_object($result_query)) {
                     echo "<strong>" . $mensagem->user_name . "</strong> disse: <em>" . $mensagem->chat . "</em><br />";
