@@ -13,6 +13,9 @@ $room_id = $_GET["room_id"];
 	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
 	<script src="js/jquery.min.js" type="text/javascript"></script>
 	<script type="text/javascript" language="javascript">
+	$(document).ready(function(){
+		$("html","body").animate({scrollTop: $("#mensagens").scrollTop()},1000);
+	});
 $(function($) {
 	// Quando o formulário for enviado, essa função é chamada
 	$("#formulario").submit(function() {
@@ -52,7 +55,7 @@ $(function($) {
 });
 </script>
         <script type="text/javascript">
-			var el = document.querySelector('#mensagens');
+			var el = document.querySelector('');
 				setInterval(function() {
 				el.innerHTML;
 				var height = el.scrollHeight;
@@ -69,7 +72,7 @@ $(function($) {
 		
 		<?php
 				// Buscamos e exibimos as mensagens já contidas no banco de dados				
-				$query = "SELECT * FROM messages m JOIN users_rooms u ON (m.user_id = u.user_id) WHERE m.room_id = '".$_GET['room_id']."' AND m.date_msg > u.date_enter ORDER BY id ASC";
+				$query = "SELECT chat, user_name FROM messages as m LEFT JOIN users_rooms AS ur ON ur.user_id = m.user_id AND ur.room_id = m.room_id WHERE ur.date_enter < m.date_msg";
 				$result_query = mysqli_query($conexao, $query);
                 while($mensagem = mysqli_fetch_object($result_query)) {
                     echo "<strong>" . $mensagem->user_name . "</strong> disse: <em>" . $mensagem->chat . "</em><br />";
